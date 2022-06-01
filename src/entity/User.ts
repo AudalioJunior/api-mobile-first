@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne } from "typeorm"
+import { Squad } from "./Squad";
+import { TaskGroup } from "./TaskGroup";
 
 @Entity()
 export class User {
@@ -6,13 +8,21 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column()
-    firstName: string
+    @CreateDateColumn({ name: "created_at" })
+    createdAt: Date;
+
+    @UpdateDateColumn({ name: "updated_at" })
+    updatedAt: Date;
 
     @Column()
-    lastName: string
+    email: string
 
     @Column()
-    age: number
+    password: number
 
+    @OneToMany(() => TaskGroup, taskGroup => taskGroup.user)
+    taskGroup: TaskGroup[];
+
+    @ManyToOne(() => Squad, squad => squad.user)
+    squad: Squad;
 }
