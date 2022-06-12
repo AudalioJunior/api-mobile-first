@@ -15,14 +15,14 @@ export const Routes = [
     },
     {
         method: "put",
-        route: "/client/:id",
+        route: "/user/:id",
         controller: UserController,
         action: "update"
     },
     {
-        method: "delete",
-        route: "/client/:id",
+        method: "get",
+        route: "/user/:email",
         controller: UserController,
-        action: "delete"
+        action: "getOne"
     }
 ];

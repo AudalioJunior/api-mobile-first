@@ -1,5 +1,5 @@
 import { getRepository } from "typeorm";
-import { User } from "../entity/User";
+import { User } from "../../entity/User";
 import IUserRepository from "./IUserRepository";
 
 export default class UserRepository implements IUserRepository {

@@ -1,4 +1,4 @@
-import { TaskGroup } from "../entity/TaskGroup";
+import { TaskGroup } from "../../entity/TaskGroup";
 
 export default interface ITaskGroupRepository{
     create(taskGroup: TaskGroup): any;

@@ -2,12 +2,14 @@ import { Request, Response } from "express";
 import { resolve } from "url";
 import CreateUserUseCase from "../useCases/User/CreateUser/CreateUserUseCase";
 import GetAllUsersUseCase from "../useCases/User/GetAllUsers/GetAllUsersUseCase";
+import GetOneUserUseCase from "../useCases/User/GetOneUser/GetOneUserUseCase";
 import UpdateUserUseCase from "../useCases/User/UpdateUser/UpdateUserUseCase";
 
 export class UserController {
   private createUserUserCase = new CreateUserUseCase();
   private getAllUserUseCase = new GetAllUsersUseCase();
   private updateUserUseCase = new UpdateUserUseCase();
+  private getOneUserUseCase = new GetOneUserUseCase();
 
   async getAll(req: Request, res: Response) {
     try {
@@ -49,9 +51,14 @@ export class UserController {
 
   async getOne(req: Request, res: Response){
     try {
-      
+      let email = req.params.email;
+      const result = await this.getOneUserUseCase.execute(email);
+      return res.json({
+        user: result,
+        message: "Usuário localizado com sucesso!"
+      })
     } catch (error) {
-      
+      return res.status(400).json({error: "Error ao buscar o usuário!"});
     }
   }
 }

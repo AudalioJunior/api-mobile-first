@@ -1,5 +1,6 @@
 import { getRepository } from "typeorm";
-import { TaskGroup } from "../entity/TaskGroup";
+import { TaskGroup } from "../../entity/TaskGroup";
+
 import ITaskGroupRepository from "./ITaskGroupRepository";
 
 export default class TaskGroupRepository implements ITaskGroupRepository{

@@ -1,4 +1,4 @@
-import UserRepository from "../../../repository/UserRepository";
+import UserRepository from "../../../repository/User/UserRepository";
 import IGetAllUsersUseCase from "./IGetAllUsersUseCase";
 
 export default class implements IGetAllUsersUseCase{

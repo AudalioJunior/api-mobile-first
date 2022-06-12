@@ -1,5 +1,5 @@
 import { User } from "../../../entity/User";
-import UserRepository from "../../../repository/UserRepository";
+import UserRepository from "../../../repository/User/UserRepository";
 import IUpdateUserUseCase from "./IUpdateUserUseCase";
 
 export default class UpdateUserUseCase implements IUpdateUserUseCase {
