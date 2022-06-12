@@ -7,9 +7,14 @@ export default class TaskGroupRepository implements ITaskGroupRepository{
 
     private ormRepository = getRepository(TaskGroup);
 
-    create(taskGroup: TaskGroup) {
-        throw new Error("Method not implemented.");
+    async create(taskGroup: TaskGroup) {
+        try {
+            const responseDb = await this.ormRepository.createQueryBuilder("")
+        } catch (error) {
+            
+        }
     }
+
     update(taskGroup: TaskGroup) {
         throw new Error("Method not implemented.");
     }
